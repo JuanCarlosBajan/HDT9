@@ -17,6 +17,7 @@ public class main {
         Scanner scan = new Scanner(System.in);
         SplayTree<String,String> SPTree = null;
         RedBlackBST<String,String> RBTree = null;
+        BinaryTree<String> BT = null;
         String arbol="";
         
         //Realizara este ciclo hasta que el usuario ingrese el numero 1 o 2
@@ -24,13 +25,14 @@ public class main {
         System.out.println("Por favor, verifique que los archivos se llamen: ");
         System.out.println("'texto.txt' el que se quiere traducir");
         System.out.println("''Spanish.txt' el diccionario");
-        System.out.println("¿Cual deseas usar? (ingrese el numero)\n");
+        System.out.println("ï¿½Cual deseas usar? (ingrese el numero)\n");
         System.out.println("1. SplayTree");
         System.out.println("2. RedBlackTree");
-         arbol = scan.nextLine();
+        System.out.println("3. BinarySearchTree");
+        arbol = scan.nextLine();
         
          
-        }while(Integer.parseInt(arbol)!=1 && Integer.parseInt(arbol)!=2 );
+        }while(Integer.parseInt(arbol)!=1 && Integer.parseInt(arbol)!=2 && Integer.parseInt(arbol)!=3);
         
         Object Tree;
         //Dependiendo de la opcion ingresada del usuario se usara la adecuada implementacion
@@ -40,14 +42,18 @@ public class main {
                 break;
             case "2":                         
                 RBTree = (RedBlackBST)fac.getImp("RedBlackTree");                    
-                break;                     
-        }
+                break;
+            case "3":
+                BT = (BinaryTree)fac.getImp("BinaryTree");
+                break;
+
+            }
         	
       
    
      
             //Lee el archivo Spanish.txt, donde contiene el diccionario
-            BufferedReader br = new BufferedReader(new FileReader("Spanish.txt"));     
+            BufferedReader br = new BufferedReader(new FileReader("Spanish.txt"));
 
             try {                
                 StringBuilder sb = new StringBuilder();
@@ -77,9 +83,11 @@ public class main {
                             }
                             if(arbol.contains("1")){
                                 SPTree.put(english, spanish);
-                            }else{
+                            }else if(arbol.contains("2")){
                                 RBTree.put(english,spanish);
-                            }  
+                            }  else {
+                                BT.put(english, spanish);
+                            }
                         }                        
                     }
                   
@@ -111,9 +119,11 @@ public class main {
                     String lambda = "";
                     if(arbol.equals("1")){
                         lambda = SPTree.get(word);
-                    }else{
+                    }else if (arbol.equals("2")){
                         lambda = RBTree.get(word);
-                    }                             
+                    } else {
+                        lambda = BT.get(word);
+                    }
                     if(lambda == null){
                         lambda = "*" + word + "*";
                     }
@@ -127,7 +137,7 @@ public class main {
             }
             finally{
                 br.close();
-                System.out.println("¡Feliz dia!");
+                System.out.println("ï¿½Feliz dia!");
             }  
         
         

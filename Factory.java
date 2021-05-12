@@ -21,9 +21,11 @@ class Factory {
         if(imp.equals("SplayTree"))
         {   
             tree = new SplayTree<>();
-        }else{
+        }else if (imp.equals("RedBlackTree")){
             tree = new RedBlackBST<>();
-        } 
+        } else {
+            tree = new BinaryTree<String>();
+        }
         return tree;
    }
 
