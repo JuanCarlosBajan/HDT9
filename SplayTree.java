@@ -117,6 +117,10 @@ public class SplayTree<Key extends Comparable<Key>, Value extends Comparable<Val
     //   it is splayed to the root of the tree. If it does not, the last node
     //   along the search path for the key is splayed to the root.
     private Node splay(Node h, Key key) {
+        /**
+         * @return rotated
+         */
+        
         if (h == null) return null;
 
         int cmp1 = key.compareTo(h.association.getKey());
