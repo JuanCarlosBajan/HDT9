@@ -10,7 +10,9 @@ public class Node<E>{
         right = null;
         left = null;
     }
-
+    /**
+     * @return value
+     */
     public E getValue(){
         return value;
     }
