@@ -46,6 +46,9 @@ public class BinaryTree<E extends Comparable<E>> {
             child = root.left;
         }
         // no child there: not in tree, return this node,
+        /**
+         * @return this node
+         */
         // else keep searching
         if (child == null) {
             return null;
