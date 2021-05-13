@@ -1,5 +1,5 @@
 /*Implementacion obtenida de: https://algs4.cs.princeton.edu/33balanced/SplayBST.java.html*/
-//Robert Sedgewick and Kevin Wayne. 
+//By: Robert Sedgewick and Kevin Wayne. 
 
 public class SplayTree<Key extends Comparable<Key>, Value extends Comparable<Value>>  {
 
